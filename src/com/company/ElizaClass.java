@@ -10,7 +10,7 @@ public class ElizaClass {
     private String response;
 
     public ElizaClass() {
-        System.out.print("Good day. What is your problem? Enter your response here or Q to quit: \n");
+        System.out.print("Good day. What is your problem? Enter your response here or Q to quit: ");
     }
 
     public void setRespond(String respond) {
@@ -25,45 +25,26 @@ public class ElizaClass {
         return "////THANKS BYE////";
     }
 
-    public String change(String str) {
-        String[] strArray = str.split(" ");
-        ArrayList<String> comp = new ArrayList<>();
-        boolean check = true;
+    public String change(String string) {
+        String[] strArray = string.split(" ");
         HashMap<String, String> map = new HashMap<>();
+        ArrayList<String> list = new ArrayList();
 
         map.put("i", "you");
         map.put("me", "you");
         map.put("my", "your");
         map.put("am", "are");
 
+            for (String str : strArray) {
+                if(map.containsKey(str))
+                    list.add(map.get(str));
+                else
+                    list.add(str);
+                }
 
-
-
-
-        for (int i=0;i<strArray.length;i++) {
-
-              //  System.out.println("the spitted words :" + strArray[i]);
-
-                do {
-                     for (Map.Entry<String, String> entry :map.entrySet()) {
-
-                         if (strArray[i].equalsIgnoreCase(entry.getKey())) {
-                             comp.add(entry.getValue());
-                             check = false;
-
-                         }
-                     }
-
-
-                    comp.add( strArray[i]);
-                } while (check);
-
-
-
-            }
-
-        System.out.println("the size "+comp.size());
-
+        for (String arr: list) {
+          System.out.print(arr +" ");
+        }
         return "";
 
     }
