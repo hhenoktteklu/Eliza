@@ -17,9 +17,13 @@ public class Main {
             if (in.equalsIgnoreCase("q")||in.equalsIgnoreCase("I am feeling great")) {
                 System.out.println(eliza.end());
                 break;
-            } else {
-                System.out.print(eliza.qualifier());
-                System.out.println(eliza.change(in)+"?"+"\nEnter your response here or Q to quit: ");
+            }
+                else if(in.equalsIgnoreCase("history")) {
+                eliza.history();
+                break;
+            }
+                {
+                System.out.println(eliza.rendomResponse(in)+"?"+"\nEnter your response here or Q to quit: ");
             }
         } while (quit);
     }

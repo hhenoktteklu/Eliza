@@ -6,9 +6,11 @@ import java.util.Random;
 
 public class ElizaClass {
     private String response;
+    ArrayList<String> userHistory = new ArrayList();
+    ArrayList<String> elisaHistory = new ArrayList();
 
     public ElizaClass() {
-        System.out.print("Good day. What is your problem? Enter your response here or Q to quit: ");
+        System.out.print(greeting()+" What is your problem? Enter your response here or Q to quit: ");
     }
 
     public void setRespond(String respond) {
@@ -47,6 +49,16 @@ public class ElizaClass {
         return stringReturn.trim();
 
     }
+    public String greeting(){
+        Random random = new Random();
+        int x = random.nextInt(3);
+        String[] strings = {
+                "Good Morning!",
+                "Good Afternoon!",
+                "Good Evening!" };
+        return strings[x];
+    }
+
     public String hedges(){
         Random random = new Random();
         int x = random.nextInt(3);
@@ -64,5 +76,24 @@ public class ElizaClass {
                 "You seem to think that, ",
                 "So, you are concerned that? " };
         return strings[x];
+    }
+    public String rendomResponse(String string){
+        Random random = new Random();
+        int x = random.nextInt(2);
+        userHistory.add(string);
+        String[] resA ={
+                qualifier() + change(string),
+                hedges()
+        };
+        String resp = resA[x];
+        elisaHistory.add(resp);
+        return resp;
+    }
+
+    public void history(){
+     for(int i=0; i<userHistory.size(); i++){
+         System.out.println("USER: "+userHistory.get(i));
+         System.out.println("--> ELISA: "+elisaHistory.get(i));
+     }
     }
 }
