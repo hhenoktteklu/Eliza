@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -17,8 +18,8 @@ public class Main {
                 System.out.println(eliza.end());
                 break;
             } else {
-                eliza.setRespond(in);
-                System.out.print(eliza.change(in)+"\nEnter your response here or Q to quit: ");
+                System.out.print(eliza.qualifier());
+                System.out.println(eliza.change(in)+"?"+"\nEnter your response here or Q to quit: ");
             }
         } while (quit);
     }

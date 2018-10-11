@@ -1,10 +1,8 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.Random;
 
 public class ElizaClass {
     private String response;
@@ -29,6 +27,7 @@ public class ElizaClass {
         String[] strArray = string.split(" ");
         HashMap<String, String> map = new HashMap<>();
         ArrayList<String> list = new ArrayList();
+        String stringReturn = "";
 
         map.put("i", "you");
         map.put("me", "you");
@@ -43,9 +42,27 @@ public class ElizaClass {
                 }
 
         for (String arr: list) {
-          System.out.print(arr +" ");
+               stringReturn += arr+" ";
         }
-        return "";
+        return stringReturn.trim();
 
+    }
+    public String hedges(){
+        Random random = new Random();
+        int x = random.nextInt(3);
+        String[] strings = {
+                "Please tell me more",
+                "Many of my patients tell me the same thing",
+                "It is getting late, maybe we had better quit" };
+        return strings[x];
+    }
+    public String qualifier(){
+        Random random = new Random();
+        int x = random.nextInt(3);
+        String[] strings = {
+                "Why do you say that? ",
+                "You seem to think that, ",
+                "So, you are concerned that? " };
+        return strings[x];
     }
 }
